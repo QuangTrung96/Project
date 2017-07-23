@@ -25,5 +25,6 @@ Route::group(['middleware' => ['auth']],function() {
         Route::get('admin', 'Admin\DashboardController@index');
         Route::resource('admin/category', 'Admin\CategoryController');
         // Route::get('admin/category', 'CategoryController@index');
+        Route::resource('admin/new', 'Admin\TinController');
     });
 });

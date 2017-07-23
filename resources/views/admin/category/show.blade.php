@@ -3,7 +3,7 @@
 @section('content')
     <div id="page-inner">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" style="padding-left:0px;padding-right: 0px;">
                 <h1 class="page-header">
                     Category List
                 </h1>
@@ -18,7 +18,7 @@
         @endif
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" style="padding-left:0px;padding-right: 0px;">
                 <!-- Advanced Tables -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -46,7 +46,7 @@
                                     <thead>
                                     <tr>
                                         <th style="width: 30px;text-align: center;">
-                                            <input name="btSelectAll" type="checkbox" >
+                                            STT
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                             colspan="1" aria-label="Browser: activate to sort column ascending"
@@ -62,7 +62,7 @@
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                             colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                            style="width: 100px;text-align: center;">Is Category
+                                            style="width: 50px;text-align: center;">Is Category
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                             colspan="1" aria-label="Platform(s): activate to sort column ascending"
@@ -76,9 +76,9 @@
                                     </thead>
                                     <tbody>
                                         @if($categories)
-                                            @foreach($categories as $item)
+                                            @foreach($categories as $key => $item)
                                                 <tr style="text-align: center;">
-                                                    <td><input type="checkbox" /></td>
+                                                    <td>{{ $key + 1 }}</td>
                                                     <td>{{ $item->id}}</td>
                                                     <td>{{ $item->name}}</td>
                                                     <td>{{ $item->parent_id }}</td>
@@ -95,40 +95,8 @@
                                         @endif
                                     </tbody>
                                 </table>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="dataTables_info" id="dataTables-example_info" role="alert"
-                                             aria-live="polite" aria-relevant="all">Showing 1 to 10 of 57 entries
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="dataTables_paginate paging_simple_numbers"
-                                             id="dataTables-example_paginate">
-                                            <ul class="pagination">
-                                                <li class="paginate_button previous disabled"
-                                                    aria-controls="dataTables-example" tabindex="0"
-                                                    id="dataTables-example_previous"><a href="#">Previous</a></li>
-                                                <li class="paginate_button active" aria-controls="dataTables-example"
-                                                    tabindex="0"><a href="#">1</a></li>
-                                                <li class="paginate_button " aria-controls="dataTables-example"
-                                                    tabindex="0"><a href="#">2</a></li>
-                                                <li class="paginate_button " aria-controls="dataTables-example"
-                                                    tabindex="0"><a href="#">3</a></li>
-                                                <li class="paginate_button " aria-controls="dataTables-example"
-                                                    tabindex="0"><a href="#">4</a></li>
-                                                <li class="paginate_button " aria-controls="dataTables-example"
-                                                    tabindex="0"><a href="#">5</a></li>
-                                                <li class="paginate_button " aria-controls="dataTables-example"
-                                                    tabindex="0"><a href="#">6</a></li>
-                                                <li class="paginate_button next" aria-controls="dataTables-example"
-                                                    tabindex="0" id="dataTables-example_next"><a href="#">Next</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <!--End Advanced Tables -->

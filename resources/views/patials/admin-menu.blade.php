@@ -19,7 +19,7 @@
                 <a href="table.html"><i class="fa fa-table"></i> Oder</a>
             </li>
             <li>
-                <a href="form.html"><i class="fa fa-edit"></i> Forms </a>
+                <a href="{{ url('admin/new') }}"><i class="fa fa-edit"></i> News </a>
             </li>
 
 

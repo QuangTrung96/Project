@@ -29,19 +29,19 @@
                                     {!! Form::open(['type'=>'POST','url'=>'admin/category','role'=>'form']) !!}
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input class="form-control" name="name" required>
+                                            <input type="text" class="form-control" name="name" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Parent ID</label>
-                                            <input class="form-control" name="parent_id" required>
+                                            <input type="text" class="form-control" name="parent_id" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Is Category</label>
-                                            <input class="form-control" name="isCategory" required>
+                                            <input type="text" class="form-control" name="isCategory" required>
                                         </div>
                                     `   <div class="form-group">
                                             <label>Slug</label>
-                                            <input class="form-control" name="slug" required>
+                                            <input type="text" class="form-control" name="slug" required>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Save</button>
                                     {!! Form::close() !!}
