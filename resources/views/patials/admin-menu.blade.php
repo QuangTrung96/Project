@@ -6,10 +6,10 @@
                 <a class="active-menu" href="{{ url('admin') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
-                <a href="{{ url('admin/category') }}"><i class="fa fa-desktop"></i> Category</a>
+                <a href="{{ url('admin/category')}}"><i class="fa fa-desktop"></i> Category</a>
             </li>
             <li>
-                <a href="chart.html"><i class="fa fa-desktop"></i> Product</a>
+                <a href="{{url('admin/product')}}"><i class="fa fa-desktop"></i> Product</a>
             </li>
             <li>
                 <a href="tab-panel.html"><i class="fa fa-qrcode"></i> Image</a>

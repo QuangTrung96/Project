@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth']],function() {
         // Đăng ký và thành công và phải là Admin mới vào được
         Route::get('admin', 'Admin\DashboardController@index');
         Route::resource('admin/category', 'Admin\CategoryController');
+        Route::resource('admin/product', 'Admin\ProductController');
         // Route::get('admin/category', 'CategoryController@index');
     });
 });
