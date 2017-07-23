@@ -14,9 +14,14 @@ class TinController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $news = Tin::all();
+        if($request->has('keyword')){
+            $keyword = $request->get('keyword');
+            $news = Tin::where('subject','like','%'. $keyword .'%')->get();
+        }else{
+            $news = Tin::all();
+        }
         return view('admin.new.show',['news'=>$news]);
     }
 

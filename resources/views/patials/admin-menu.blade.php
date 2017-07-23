@@ -20,6 +20,9 @@
             <li>
                 <a href="{{ url('admin/new') }}"><i class="fa fa-edit"></i> News </a>
             </li>
+            <li>
+                <a href="{{ url('admin/reque') }}"><i class="fa fa-edit"></i> Request </a>
+            </li>
         </ul>
     </div>
 

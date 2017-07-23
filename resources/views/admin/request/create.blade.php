@@ -1,10 +1,10 @@
 @extends('layouts.admin')
-@section('title') Create Category | PHP0317E @endsection
+@section('title') Create Request | PHP0317E @endsection
 @section('content')
     <div>
         <ol class="breadcrumb">
             <li><a href="{{ url('admin') }}" class="glyphicon glyphicon-home"></a></li>
-            <li><a href="{{ url('admin/category') }}">Category</a></li>
+            <li><a href="{{ url('admin/category') }}">Request</a></li>
             <li class="active">Create</li>
         </ol>
     </div>

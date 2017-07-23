@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Reque;
+use Session;
 class RequeController extends Controller
 {
     /**
@@ -14,7 +15,8 @@ class RequeController extends Controller
      */
     public function index()
     {
-        //
+        $reques = Reque::all();
+        return view('admin.request.show',['reques'=>$reques]);
     }
 
     /**
@@ -80,6 +82,10 @@ class RequeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reques = Reque::findOrFail($id);
+        $reques ->delete();
+
+        Session::flash('success','Delete Request Successfully !!!');
+        return redirect('admin/reque');
     }
 }

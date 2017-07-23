@@ -28,13 +28,9 @@
                         <div class="table-responsive">
                             <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
                                 <div class="row">
-                                    <div class="col-sm-6">
-                                        <a href="{{ url('admin/request/create') }}"> Create New</a>
-                                    </div>
-
                                     <div class="col-sm-6 navbar-right">
                                         <div style="float: right">
-                                            {!! Form::open(['method' => 'GET','url' => 'admin/request']) !!}
+                                            {!! Form::open(['method' => 'GET','url' => 'admin/reque']) !!}
                                             <input type="text" name="keyword" placeholder="Type you word ..." @if(Request::has('keyword')) value="{{ Request::get('keyword') }}" @endif() />
                                             <input type="submit" value="Search" />
                                             {!! Form::close() !!}
@@ -47,6 +43,10 @@
                                     <tr>
                                         <th style="width: 30px;text-align: center;">
                                             STT
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
+                                            colspan="1" aria-label="Browser: activate to sort column ascending"
+                                            style="width: 30px;text-align: center;">ID
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                             colspan="1" aria-label="Browser: activate to sort column ascending"
@@ -64,25 +64,25 @@
                                             colspan="1" aria-label="Platform(s): activate to sort column ascending"
                                             style="width: 50px;text-align: center;">User ID
                                         </th>
-                                        <th  tabindex="0" aria-controls="dataTables-example" rowspan="1"
+                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                             colspan="1" aria-label="Engine version: activate to sort column ascending"
-                                            style="width: 95px;text-align: center;">Action
+                                            style="width: 50px;text-align: center;">Action
                                         </th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        @if($request)
-                                            @foreach($request as $key => $item)
+                                        @if($reques)
+                                            @foreach($reques as $key => $item)
                                                 <tr style="text-align: center;">
                                                     <td>{{ $key + 1 }}</td>
                                                     <td>{{ $item->id}}</td>
                                                     <td>{{ $item->subject}}</td>
-                                                    <td>{{ $item->detail }}</td>
+                                                    <td style="text-align: justify;">{{ $item->detail }}</td>
                                                     <td>{{ $item->date }}</td>
                                                     <td>{{ $item->user_id }}</td>
                                                     <td>
-                                                        <button class=" btn btn-success" style="float: left" ><a href="{{ url('admin/request/'.$item->id.'/edit') }}">Edit</a></button>
-                                                        {!! Form::open(['method' => 'DELETE','url'=> 'admin/request/'.$item->id]) !!}
+                                                        {{--<button class=" btn btn-success" style="float: left" ><a href="{{ url('admin/reque/'.$item->id.'/edit') }}">Edit</a></button>--}}
+                                                        {!! Form::open(['method' => 'DELETE','url'=> 'admin/reque/'.$item->id]) !!}
                                                         <button class=" btn btn-danger" type="submit" name="btn" onclick="return confirm('Are You Sure ?')">Delete</button>
                                                         {!! Form::close() !!}
                                                     </td>

@@ -24,9 +24,14 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
+        if($request->has('keyword')){
+            $keyword = $request->get('keyword');
+            $products = Product::where('title','like','%'. $keyword .'%')->get();
+        }else{
+            $products = Product::all();
+        }
         return view('admin.product.show',['products' => $products]);
     }
 
