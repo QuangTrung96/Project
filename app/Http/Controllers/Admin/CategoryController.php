@@ -49,7 +49,7 @@ class CategoryController extends Controller
         $c->slug = $request->slug;
         $c->save();
 
-        Session::flash('success','Tạo mới thành công !');
+        Session::flash('success','Tạo mới thành công !!!');
         return redirect('admin/category');
     }
 

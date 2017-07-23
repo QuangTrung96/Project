@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatNewsTable extends Migration
+class AddPhonenumberColumnIntoUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreatNewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
-            $table->increments('id');
-			$table->string('subject');
-			$table->text('content');
-			$table->integer('user_id');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('phonenumber')->after('indentificationalCard')->nullable();
         });
     }
 
@@ -29,6 +25,8 @@ class CreatNewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 }
