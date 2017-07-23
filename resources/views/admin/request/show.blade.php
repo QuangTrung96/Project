@@ -1,11 +1,11 @@
 @extends('layouts.admin')
-@section('title') Product | PHP0317E @endsection
+@section('title') Request | PHP0317E @endsection
 @section('content')
     <div id="page-inner">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" style="padding-left:0px;padding-right: 0px;">
                 <h1 class="page-header">
-                    Product List
+                    Request List
                 </h1>
             </div>
         </div>
@@ -18,7 +18,7 @@
         @endif
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" style="padding-left:0px;padding-right: 0px;">
                 <!-- Advanced Tables -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -29,12 +29,12 @@
                             <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <a href="{{ url('admin/product/create') }}"> Create New</a>
+                                        <a href="{{ url('admin/request/create') }}"> Create New</a>
                                     </div>
 
                                     <div class="col-sm-6 navbar-right">
                                         <div style="float: right">
-                                            {!! Form::open(['method' => 'GET','url' => 'admin/product']) !!}
+                                            {!! Form::open(['method' => 'GET','url' => 'admin/request']) !!}
                                             <input type="text" name="keyword" placeholder="Type you word ..." @if(Request::has('keyword')) value="{{ Request::get('keyword') }}" @endif() />
                                             <input type="submit" value="Search" />
                                             {!! Form::close() !!}
@@ -50,56 +50,40 @@
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                             colspan="1" aria-label="Browser: activate to sort column ascending"
-                                            style="width: 30px;text-align: center;">ID
+                                            style="width: 30px;text-align: center;">Subject
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                             colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                            style="width: 150px;text-align: center;">Title
+                                            style="width: 150px;text-align: center;">Detail
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                             colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                            style="width: 100px;text-align: center;">Category
+                                            style="width: 100px;text-align: center;">Date
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                             colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                            style="width: 100px;text-align: center;">Image
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
-                                            colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                            style="width: 170px;text-align: center;">Orginal Price
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
-                                            colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                            style="width: 170px;text-align: center;">Author
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
-                                            colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                            style="width: 170px;text-align: center;">Pubishing Company
+                                            style="width: 50px;text-align: center;">User ID
                                         </th>
                                         <th  tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                             colspan="1" aria-label="Engine version: activate to sort column ascending"
-                                            style="width: 200px;text-align: center;">Action
+                                            style="width: 95px;text-align: center;">Action
                                         </th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        @if(isset($products))
-                                            @foreach($products as $key => $item)
+                                        @if($request)
+                                            @foreach($request as $key => $item)
                                                 <tr style="text-align: center;">
                                                     <td>{{ $key + 1 }}</td>
                                                     <td>{{ $item->id}}</td>
-                                                    <td>{{ $item->title}}</td>
-                                                    <td>{{ $item->category->name }}</td>
+                                                    <td>{{ $item->subject}}</td>
+                                                    <td>{{ $item->detail }}</td>
+                                                    <td>{{ $item->date }}</td>
+                                                    <td>{{ $item->user_id }}</td>
                                                     <td>
-                                                        <img src="{{url('uploads/product/'.$item->image)}}" alt="" width="120"/>
-                                                    </td>
-                                                    <td>{{ $item->orginalPrice }}</td>
-                                                    <td>{{ $item->author }}</td>
-                                                    <td>{{ $item->pubishingCompany }}</td>
-                                                    <td>
-                                                        <button class=" btn btn-success" style="float: left" ><a href="{{ url('admin/product/'.$item->id.'/edit') }}">Edit</a></button>
-                                                        {!! Form::open(['method' => 'DELETE','url'=> 'admin/product/'.$item->id]) !!}
-                                                        <button class=" btn btn-danger" type="submit" name="btn" onclick="return confirm('Bạn có chắc chắn muốn xóa')">Delete</button>
+                                                        <button class=" btn btn-success" style="float: left" ><a href="{{ url('admin/request/'.$item->id.'/edit') }}">Edit</a></button>
+                                                        {!! Form::open(['method' => 'DELETE','url'=> 'admin/request/'.$item->id]) !!}
+                                                        <button class=" btn btn-danger" type="submit" name="btn" onclick="return confirm('Are You Sure ?')">Delete</button>
                                                         {!! Form::close() !!}
                                                     </td>
                                                 </tr>
@@ -140,7 +124,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <!--End Advanced Tables -->
